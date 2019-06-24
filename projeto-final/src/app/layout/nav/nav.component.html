@@ -1,0 +1,5 @@
+<ul class="menu">
+  <li routerLinkActive="ativo" *ngFor="let item of menus" >
+    <a [routerLink]="item.link">{{ item.descricao }}</a>
+  </li>
+</ul>
