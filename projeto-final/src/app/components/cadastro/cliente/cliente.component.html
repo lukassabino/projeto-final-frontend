@@ -1,3 +1,91 @@
-<p>
-  cliente works!
-</p>
+<form [formGroup]="formularioCliente">
+
+
+  <div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--1-col">
+        <mat-form-field appearance="outline">
+          <mat-label>Codigo</mat-label>
+          <input matInput formControlName="codigo">
+        </mat-form-field>
+    </div>
+
+
+    <div class="mdl-cell mdl-cell--3-col">
+      <mat-form-field appearance="outline">
+        <mat-label>Nome</mat-label>
+        <input matInput formControlName="nome">
+        <mat-error *ngIf="formularioCliente.get('nome').hasError('required')">Campo obrigatorio</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="mdl-cell mdl-cell--3-col">
+      <mat-form-field appearance="outline">
+        <mat-label>CPF</mat-label>
+        <input matInput formControlName="cpf" type="number">
+        <mat-error *ngIf="formularioCliente.get('cpf').hasError('required')">Campo obrigatorio</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="mdl-cell mdl-cell--2-col">
+      <mat-form-field appearance="outline">
+        <mat-label>Telefone</mat-label>
+        <input matInput formControlName="telefone" type="tel">
+      </mat-form-field>
+    </div>
+
+    <div class="mdl-cell mdl-cell--4-col">
+      <mat-form-field appearance="outline">
+        <mat-label>E-mail</mat-label>
+        <input matInput formControlName="email">
+      </mat-form-field>
+    </div>
+
+    <div class="mdl-cell mdl-cell--3-col">
+      <mat-form-field appearance="outline">
+        <mat-label>Endereço</mat-label>
+        <input matInput formControlName="endereco">
+      </mat-form-field>
+    </div>
+
+    <div class="mdl-cell mdl-cell--3-col">
+      <mat-form-field appearance="outline">
+        <mat-label>Cidade</mat-label>
+        <input matInput formControlName="cidade">
+      </mat-form-field>
+    </div>
+
+    <div class="mdl-cell mdl-cell--1-col">
+      <mat-form-field appearance="outline">
+        <mat-label>Estado</mat-label>
+        <input matInput formControlName="estado">
+      </mat-form-field>
+    </div>
+
+    <div class="mdl-cell mdl-cell--1-col">
+      <mat-form-field appearance="outline">
+        <mat-label>Limite Compra</mat-label>
+        <input matInput formControlName="limitecompra" type="number">
+        <mat-error *ngIf="formularioCliente.get('cpf').hasError('required')">Campo obrigatorio</mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--2-col">
+      <button mat-raised-button color="primary" type="button" (click)="onSubmit()"
+        [disabled]="formularioCliente.invalid">Salvar</button>
+    </div>
+    <div class="mdl-cell mdl-cell--2-col">
+        <button mat-raised-button color="primary" type="button" (click)="listaCliente()">Listar Clientes</button>
+    </div>
+    <div class="mdl-cell mdl-cell--2-col">
+        <button mat-raised-button color="primary" type="button" (click)="editaCliente()"
+          [disabled]="formularioCliente.invalid">Editar Cadastro</button>
+    </div>
+    <div class="mdl-cell mdl-cell--2-col">
+        <button mat-raised-button color="primary" type="button" (click)="excluiCliente()"
+          [disabled]="formularioCliente.invalid">Excluir</button>
+    </div>
+  </div>
+
+  <!-- <button type="button" (click)="onSubmit()">Salvar</button> -->
+</form>

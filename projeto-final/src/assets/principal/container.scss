@@ -2,7 +2,7 @@
 
 .container {
   display: grid;
-  grid-template-columns: 300px auto;
+  grid-template-columns: 290px auto;
   grid-template-rows: 75px auto;
   grid-template-areas:
       "topo topo"
@@ -33,3 +33,4 @@ main {
   background-color:  whitesmoke;
   padding: 10px;
 }
+

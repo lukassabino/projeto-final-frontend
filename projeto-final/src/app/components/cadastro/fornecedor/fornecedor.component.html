@@ -1,3 +1,72 @@
-<p>
-  fornecedor works!
-</p>
+<form [formGroup]="formularioFornecedor">
+  <div class="mdl-grid">
+
+    <div class="mdl-cell mdl-cell--1-col">
+        <mat-form-field appearance="outline">
+          <mat-label>Codigo</mat-label>
+          <input matInput formControlName="codigo">
+        </mat-form-field>
+    </div>
+
+
+    <div class="mdl-cell mdl-cell--3-col">
+      <mat-form-field appearance="outline">
+        <mat-label>Razão Social</mat-label>
+        <input matInput formControlName="razaosocial">
+        <mat-error *ngIf="formularioFornecedor.get('razaosocial').hasError('required')">Campo obrigatorio</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="mdl-cell mdl-cell--3-col">
+      <mat-form-field appearance="outline">
+        <mat-label>Nome Fantasia</mat-label>
+        <input matInput formControlName="nomefantasia">
+        <mat-error *ngIf="formularioFornecedor.get('nomefantasia').hasError('required')">Campo obrigatorio</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="mdl-cell mdl-cell--2-col">
+      <mat-form-field appearance="outline">
+        <mat-label>CNPJ</mat-label>
+        <input matInput formControlName="cnpj">
+        <mat-error *ngIf="formularioFornecedor.get('cnpj').hasError('required')">Campo obrigatorio</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="mdl-cell mdl-cell--4-col">
+      <mat-form-field appearance="outline">
+        <mat-label>E-mail</mat-label>
+        <input matInput formControlName="email">
+      </mat-form-field>
+    </div>
+
+    <div class="mdl-cell mdl-cell--3-col">
+      <mat-form-field appearance="outline">
+        <mat-label>Endereço</mat-label>
+        <input matInput formControlName="endereco">
+      </mat-form-field>
+    </div>
+
+    <div class="mdl-cell mdl-cell--3-col">
+      <mat-form-field appearance="outline">
+        <mat-label>Cidade</mat-label>
+        <input matInput formControlName="cidade">
+      </mat-form-field>
+    </div>
+
+    <div class="mdl-cell mdl-cell--1-col">
+      <mat-form-field appearance="outline">
+        <mat-label>Estado</mat-label>
+        <input matInput formControlName="estado">
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--2-col">
+      <button mat-raised-button color="primary" type="button" (click)="onSubmit()"
+        [disabled]="formularioFornecedor.invalid">Salvar</button>
+    </div>
+  </div>
+
+  <!-- <button type="button" (click)="onSubmit()">Salvar</button> -->
+</form>

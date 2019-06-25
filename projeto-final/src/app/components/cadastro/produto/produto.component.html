@@ -1,3 +1,52 @@
-<p>
-  produto works!
-</p>
+<form [formGroup]="formularioProduto">
+  <div class="mdl-grid">
+
+    <div class="mdl-cell mdl-cell--1-col">
+        <mat-form-field appearance="outline">
+          <mat-label>Codigo</mat-label>
+          <input matInput formControlName="codigo">
+        </mat-form-field>
+    </div>
+
+    <div class="mdl-cell mdl-cell--3-col">
+        <mat-form-field appearance="outline">
+          <mat-label>Codigo de Barras</mat-label>
+          <input matInput formControlName="codbarras">
+          <mat-error *ngIf="formularioProduto.get('codbarras').hasError('required')">Campo obrigatorio</mat-error>
+        </mat-form-field>
+    </div>
+
+    <div class="mdl-cell mdl-cell--3-col">
+      <mat-form-field appearance="outline">
+        <mat-label>Nome</mat-label>
+        <input matInput formControlName="nome">
+        <mat-error *ngIf="formularioProduto.get('nome').hasError('required')">Campo obrigatorio</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="mdl-cell mdl-cell--2-col">
+      <mat-form-field appearance="outline">
+        <mat-label>Preço</mat-label>
+        <input matInput formControlName="preco" type="number">
+        <mat-error *ngIf="formularioProduto.get('preco').hasError('required')">Campo obrigatorio</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="mdl-cell mdl-cell--2-col">
+      <mat-form-field appearance="outline">
+        <mat-label>Fornecedor</mat-label>
+        <input matInput formControlName="fornecedor" type="tel">
+        <mat-error *ngIf="formularioProduto.get('fornecedor').hasError('required')">Campo obrigatorio</mat-error>
+      </mat-form-field>
+    </div>
+
+  </div>
+  <div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--2-col">
+      <button mat-raised-button color="primary" type="button" (click)="onSubmit()"
+        [disabled]="formularioProduto.invalid">Salvar</button>
+    </div>
+  </div>
+
+  <!-- <button type="button" (click)="onSubmit()">Salvar</button> -->
+</form>

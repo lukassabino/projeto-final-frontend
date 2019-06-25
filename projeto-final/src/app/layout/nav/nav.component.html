@@ -1,5 +1,17 @@
-<ul class="menu">
-  <li routerLinkActive="ativo" *ngFor="let item of menus" >
-    <a [routerLink]="item.link">{{ item.descricao }}</a>
-  </li>
-</ul>
+<div>
+  <button mat-button aria-hidden="false" aria-label="Example home icon">
+    <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
+  </button>
+</div>
+
+<div>
+  <button mat-button [matMenuTriggerFor]="menu">Cadastros</button>
+  <mat-menu #menu="matMenu">
+      <ul class="menu">
+        <li routerLinkActive="ativo" *ngFor="let item of menus" >
+          <a [routerLink]="item.link">{{ item.descricao }}</a>
+        </li>
+      </ul>
+  </mat-menu>
+</div>
+

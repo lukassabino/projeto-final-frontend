@@ -2,25 +2,36 @@ import { CadastroModule } from './components/cadastro/cadastro.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ContainerComponent } from './layout/container/container.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { NavComponent } from './layout/nav/nav.component';
-import { ClienteComponent } from './components/cadastro/cliente/cliente.component';
+import {MatInputModule} from '@angular/material/input';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule} from '@angular/material/button';
+import { ReactiveFormsModule } from '@angular/forms';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
     AppComponent,
     ContainerComponent,
     HeaderComponent,
-    NavComponent,
-    ClienteComponent
+    NavComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    CadastroModule
+    CadastroModule,
+    MatInputModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    ReactiveFormsModule,
+    MatMenuModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

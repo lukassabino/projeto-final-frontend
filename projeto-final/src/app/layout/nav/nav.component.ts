@@ -8,7 +8,6 @@ import { Component, OnInit } from '@angular/core';
 export class NavComponent implements OnInit {
 
   menus = [
-    // {link: 'home', descricao: 'Home'},
     {link: 'cliente', descricao: 'Cadastro de Cliente'},
     {link: 'farmaceutico', descricao: 'Cadastro de Farmacêutico'},
     {link: 'fornecedor', descricao: 'Cadastro de Fornecedor'},
