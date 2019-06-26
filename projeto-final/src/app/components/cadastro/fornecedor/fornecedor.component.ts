@@ -33,4 +33,12 @@ export class FornecedorComponent implements OnInit {
     console.log(this.formularioFornecedor.controls.email.value);
   }
 
+
+  listaFornecedor() {
+  }
+  editaFornecedor() {
+  }
+  excluiFornecedor() {
+  }
+
 }

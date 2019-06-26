@@ -46,6 +46,17 @@
       <button mat-raised-button color="primary" type="button" (click)="onSubmit()"
         [disabled]="formularioProduto.invalid">Salvar</button>
     </div>
+    <div class="mdl-cell mdl-cell--3-col">
+        <button mat-raised-button color="primary" type="button" routerLink="listaprodu">Listar Produtos</button>
+    </div>
+    <div class="mdl-cell mdl-cell--2-col">
+        <button mat-raised-button color="primary" type="button" (click)="editaProduto()"
+          [disabled]="formularioProduto.invalid">Editar Cadastro</button>
+    </div>
+    <div class="mdl-cell mdl-cell--2-col">
+        <button mat-raised-button color="primary" type="button" (click)="excluiProduto()"
+          [disabled]="formularioProduto.invalid">Excluir</button>
+    </div>
   </div>
 
   <!-- <button type="button" (click)="onSubmit()">Salvar</button> -->

@@ -29,4 +29,11 @@ export class ProdutoComponent implements OnInit {
     console.log(this.formularioProduto.controls.email.value);
   }
 
+  listaProduto() {
+  }
+  editaProduto() {
+  }
+  excluiProduto() {
+  }
+
 }

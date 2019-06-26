@@ -1,11 +1,8 @@
-<div>
-  <a mat-flat-button routerLink=".">
-    <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
-  </a>
-</div>
 
 <div>
-  <button mat-button [matMenuTriggerFor]="menu">Cadastros</button>
+  <button mat-button [matMenuTriggerFor]="menu">Cadastros
+    <img src="../../../assets/icons/seta.png">
+  </button>
   <mat-menu #menu="matMenu">
       <ul class="menu">
         <li routerLinkActive="ativo" *ngFor="let item of menus" >

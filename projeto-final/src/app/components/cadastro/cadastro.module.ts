@@ -13,10 +13,17 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {MatMenuModule} from '@angular/material/menu';
 import { HomeComponent } from './home/home.component';
 import {MatCardModule} from '@angular/material/card';
+import { ListaClienteComponent } from './cliente/lista-cliente/lista-cliente.component';
+import { ListaFarmaceuticoComponent } from './farmaceutico/lista-farmaceutico/lista-farmaceutico.component';
+import { ListaFornecedorComponent } from './fornecedor/lista-fornecedor/lista-fornecedor.component';
+import { ListaProdutoComponent } from './produto/lista-produto/lista-produto.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatIconModule} from '@angular/material/icon';
 
 
 @NgModule({
-  declarations: [FarmaceuticoComponent, FornecedorComponent, ProdutoComponent, ClienteComponent, HomeComponent],
+  declarations: [FarmaceuticoComponent, FornecedorComponent, ProdutoComponent, ClienteComponent, HomeComponent, ListaClienteComponent,
+     ListaFarmaceuticoComponent, ListaFornecedorComponent, ListaProdutoComponent],
   imports: [
     CommonModule,
     CadastroRoutingModule,
@@ -25,7 +32,9 @@ import {MatCardModule} from '@angular/material/card';
     MatButtonModule,
     ReactiveFormsModule,
     MatMenuModule,
-    MatCardModule
+    MatCardModule,
+    MatTableModule,
+    MatIconModule
   ]
 })
 export class CadastroModule { }

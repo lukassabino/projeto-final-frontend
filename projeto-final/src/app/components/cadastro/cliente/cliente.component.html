@@ -1,3 +1,5 @@
+
+
 <form [formGroup]="formularioCliente">
 
 
@@ -75,7 +77,7 @@
         [disabled]="formularioCliente.invalid">Salvar</button>
     </div>
     <div class="mdl-cell mdl-cell--2-col">
-        <button mat-raised-button color="primary" type="button"  (click)="listaCliente()">Listar Clientes</button>
+        <button mat-raised-button color="primary" type="button"  routerLink="listacli" >Listar Clientes</button>
     </div>
     <div class="mdl-cell mdl-cell--2-col">
         <button mat-raised-button color="primary" type="button" (click)="editaCliente()"
@@ -89,3 +91,5 @@
 
   <!-- <button type="button" (click)="onSubmit()">Salvar</button> -->
 </form>
+
+<router-outlet></router-outlet>
