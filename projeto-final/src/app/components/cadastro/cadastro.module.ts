@@ -11,9 +11,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatMenuModule} from '@angular/material/menu';
+import { HomeComponent } from './home/home.component';
+import {MatCardModule} from '@angular/material/card';
+
 
 @NgModule({
-  declarations: [FarmaceuticoComponent, FornecedorComponent, ProdutoComponent, ClienteComponent],
+  declarations: [FarmaceuticoComponent, FornecedorComponent, ProdutoComponent, ClienteComponent, HomeComponent],
   imports: [
     CommonModule,
     CadastroRoutingModule,
@@ -21,7 +24,8 @@ import {MatMenuModule} from '@angular/material/menu';
     BrowserAnimationsModule,
     MatButtonModule,
     ReactiveFormsModule,
-    MatMenuModule
+    MatMenuModule,
+    MatCardModule
   ]
 })
 export class CadastroModule { }

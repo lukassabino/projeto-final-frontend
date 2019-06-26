@@ -65,7 +65,7 @@
       <mat-form-field appearance="outline">
         <mat-label>Limite Compra</mat-label>
         <input matInput formControlName="limitecompra" type="number">
-        <mat-error *ngIf="formularioCliente.get('cpf').hasError('required')">Campo obrigatorio</mat-error>
+        <mat-error *ngIf="formularioCliente.get('limitecompra').hasError('required')">Campo obrigatorio</mat-error>
       </mat-form-field>
     </div>
   </div>
@@ -75,7 +75,7 @@
         [disabled]="formularioCliente.invalid">Salvar</button>
     </div>
     <div class="mdl-cell mdl-cell--2-col">
-        <button mat-raised-button color="primary" type="button" (click)="listaCliente()">Listar Clientes</button>
+        <button mat-raised-button color="primary" type="button"  (click)="listaCliente()">Listar Clientes</button>
     </div>
     <div class="mdl-cell mdl-cell--2-col">
         <button mat-raised-button color="primary" type="button" (click)="editaCliente()"
