@@ -7,7 +7,7 @@
     <div class="mdl-cell mdl-cell--1-col">
         <mat-form-field appearance="outline">
           <mat-label>Codigo</mat-label>
-          <input matInput formControlName="codigo">
+          <input matInput formControlName="id">
         </mat-form-field>
     </div>
 
@@ -23,8 +23,8 @@
     <div class="mdl-cell mdl-cell--3-col">
       <mat-form-field appearance="outline">
         <mat-label>CPF</mat-label>
-        <input matInput formControlName="cpf" type="number">
-        <mat-error *ngIf="formularioCliente.get('cpf').hasError('required')">Campo obrigatorio</mat-error>
+        <input matInput formControlName="documento" type="number">
+        <mat-error *ngIf="formularioCliente.get('documento').hasError('required')">Campo obrigatorio</mat-error>
       </mat-form-field>
     </div>
 
@@ -66,8 +66,8 @@
     <div class="mdl-cell mdl-cell--1-col">
       <mat-form-field appearance="outline">
         <mat-label>Limite Compra</mat-label>
-        <input matInput formControlName="limitecompra" type="number">
-        <mat-error *ngIf="formularioCliente.get('limitecompra').hasError('required')">Campo obrigatorio</mat-error>
+        <input matInput formControlName="limite" type="number">
+        <mat-error *ngIf="formularioCliente.get('limite').hasError('required')">Campo obrigatorio</mat-error>
       </mat-form-field>
     </div>
   </div>
@@ -80,7 +80,7 @@
         <button mat-raised-button color="primary" type="button"  routerLink="listacli" >Listar Clientes</button>
     </div>
     <div class="mdl-cell mdl-cell--2-col">
-        <button mat-raised-button color="primary" type="button" (click)="editaCliente()"
+        <button mat-raised-button color="primary" type="button" (click)="updateFormulario()"
           [disabled]="formularioCliente.invalid">Editar Cadastro</button>
     </div>
     <div class="mdl-cell mdl-cell--2-col">

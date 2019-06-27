@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ClienteService } from '../services/cliente.service';
 
 @Component({
   selector: 'app-cliente',
@@ -11,27 +12,49 @@ export class ClienteComponent implements OnInit {
   formularioCliente: FormGroup;
 
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private clienteService: ClienteService
   ) { }
 
   ngOnInit() {
     this.formularioCliente = this.formBuilder.group({
-      codigo: [null, Validators.required],
+      id: [null],
       nome: [null, Validators.required],
-      cpf: [null, Validators.required],
+      documento: [null, Validators.required],
       telefone: [null],
       email: [null],
       endereco: [null],
       cidade: [null],
       estado: [null],
-      limitecompra: [null, Validators.required]
+      limite: [null, Validators.required]
     });
   }
 
   onSubmit() {
-    console.log(this.formularioCliente);
-    console.log(this.formularioCliente.get('nome').value);
-    console.log(this.formularioCliente.controls.email.value);
+    console.log('form', this.formularioCliente);
+    console.log('nome', this.formularioCliente.get('nome').value);
+
+    if (this.formularioCliente.valid) {
+      if (this.formularioCliente.get('id').value) {
+        this.clienteService.atualizar(this.formularioCliente.value).subscribe(() => {
+          console.log('atualizou');
+        });
+      } else {
+        this.clienteService.cadastrar(this.formularioCliente.value).subscribe(() => {
+          console.log('criou');
+        });
+      }
+    }
+
+  }
+
+  updateFormulario(cliente) {
+    this.formularioCliente.patchValue({
+      id: cliente.id,
+      nome: cliente.nome,
+      email: cliente.email,
+      telefone: cliente.telefone
+    });
   }
 
   listaCliente() {
