@@ -1,3 +1,4 @@
+import { CarrinhoComponent } from './carrinho/carrinho.component';
 import { ListaProdutoComponent } from './produto/lista-produto/lista-produto.component';
 import { ListaFornecedorComponent } from './fornecedor/lista-fornecedor/lista-fornecedor.component';
 import { ListaFarmaceuticoComponent } from './farmaceutico/lista-farmaceutico/lista-farmaceutico.component';
@@ -19,7 +20,8 @@ const routes: Routes = [
     {path: 'cliente/listacli', component: ListaClienteComponent},
     {path: 'farmaceutico/listafarma', component: ListaFarmaceuticoComponent},
     {path: 'fornecedor/listaforne', component: ListaFornecedorComponent},
-    {path: 'produto/listaprodu', component: ListaProdutoComponent}
+    {path: 'produto/listaprodu', component: ListaProdutoComponent},
+    {path: 'carrinho', component: CarrinhoComponent}
 ];
 
 @NgModule({

@@ -19,11 +19,12 @@ import { ListaFornecedorComponent } from './fornecedor/lista-fornecedor/lista-fo
 import { ListaProdutoComponent } from './produto/lista-produto/lista-produto.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatIconModule} from '@angular/material/icon';
+import { CarrinhoComponent } from './carrinho/carrinho.component';
 
 
 @NgModule({
   declarations: [FarmaceuticoComponent, FornecedorComponent, ProdutoComponent, ClienteComponent, HomeComponent, ListaClienteComponent,
-     ListaFarmaceuticoComponent, ListaFornecedorComponent, ListaProdutoComponent],
+     ListaFarmaceuticoComponent, ListaFornecedorComponent, ListaProdutoComponent, CarrinhoComponent],
   imports: [
     CommonModule,
     CadastroRoutingModule,
