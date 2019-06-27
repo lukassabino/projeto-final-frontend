@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class FornecedorService {
 
-  url = 'http://localhost:8080/cliente';
+  url = 'http://localhost:8080/fornecedor';
 
   constructor(
     private http: HttpClient

@@ -9,7 +9,7 @@ import { produtoDTO } from '../dto/produto-dto';
 })
 export class ProdutoService {
 
-  url = 'http://localhost:8080/cliente';
+  url = 'http://localhost:8080/produto';
 
   constructor(
     private http: HttpClient

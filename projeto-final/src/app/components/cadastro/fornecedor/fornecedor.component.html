@@ -4,7 +4,7 @@
     <div class="mdl-cell mdl-cell--1-col">
         <mat-form-field appearance="outline">
           <mat-label>Codigo</mat-label>
-          <input matInput formControlName="codigo">
+          <input matInput formControlName="id">
         </mat-form-field>
     </div>
 
@@ -12,24 +12,24 @@
     <div class="mdl-cell mdl-cell--3-col">
       <mat-form-field appearance="outline">
         <mat-label>Razão Social</mat-label>
-        <input matInput formControlName="razaosocial">
-        <mat-error *ngIf="formularioFornecedor.get('razaosocial').hasError('required')">Campo obrigatorio</mat-error>
+        <input matInput formControlName="razaoSocial">
+        <mat-error *ngIf="formularioFornecedor.get('razaoSocial').hasError('required')">Campo obrigatorio</mat-error>
       </mat-form-field>
     </div>
 
     <div class="mdl-cell mdl-cell--3-col">
       <mat-form-field appearance="outline">
         <mat-label>Nome Fantasia</mat-label>
-        <input matInput formControlName="nomefantasia">
-        <mat-error *ngIf="formularioFornecedor.get('nomefantasia').hasError('required')">Campo obrigatorio</mat-error>
+        <input matInput formControlName="nome">
+        <mat-error *ngIf="formularioFornecedor.get('nome').hasError('required')">Campo obrigatorio</mat-error>
       </mat-form-field>
     </div>
 
     <div class="mdl-cell mdl-cell--2-col">
       <mat-form-field appearance="outline">
         <mat-label>CNPJ</mat-label>
-        <input matInput formControlName="cnpj">
-        <mat-error *ngIf="formularioFornecedor.get('cnpj').hasError('required')">Campo obrigatorio</mat-error>
+        <input matInput formControlName="documento">
+        <mat-error *ngIf="formularioFornecedor.get('documento').hasError('required')">Campo obrigatorio</mat-error>
       </mat-form-field>
     </div>
 

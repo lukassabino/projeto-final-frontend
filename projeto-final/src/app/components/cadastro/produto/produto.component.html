@@ -4,15 +4,15 @@
     <div class="mdl-cell mdl-cell--1-col">
         <mat-form-field appearance="outline">
           <mat-label>Codigo</mat-label>
-          <input matInput formControlName="codigo">
+          <input matInput formControlName="id">
         </mat-form-field>
     </div>
 
     <div class="mdl-cell mdl-cell--3-col">
         <mat-form-field appearance="outline">
           <mat-label>Codigo de Barras</mat-label>
-          <input matInput formControlName="codbarras">
-          <mat-error *ngIf="formularioProduto.get('codbarras').hasError('required')">Campo obrigatorio</mat-error>
+          <input matInput formControlName="codigoBarras">
+          <mat-error *ngIf="formularioProduto.get('codigoBarras').hasError('required')">Campo obrigatorio</mat-error>
         </mat-form-field>
     </div>
 
@@ -35,8 +35,15 @@
     <div class="mdl-cell mdl-cell--2-col">
       <mat-form-field appearance="outline">
         <mat-label>Fornecedor</mat-label>
-        <input matInput formControlName="fornecedor" type="tel">
-        <mat-error *ngIf="formularioProduto.get('fornecedor').hasError('required')">Campo obrigatorio</mat-error>
+        <input matInput formControlName="razaoSocial" type="tel">
+        <mat-error *ngIf="formularioProduto.get('razaoSocial').hasError('required')">Campo obrigatorio</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="mdl-cell mdl-cell--2-col">
+      <mat-form-field appearance="outline">
+        <mat-label>Quantidade</mat-label>
+        <input matInput formControlName="qtd" type="tel">
+        <mat-error *ngIf="formularioProduto.get('qtd').hasError('required')">Campo obrigatorio</mat-error>
       </mat-form-field>
     </div>
 

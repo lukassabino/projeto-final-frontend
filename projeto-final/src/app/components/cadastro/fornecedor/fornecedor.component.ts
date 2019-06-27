@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FornecedorService } from '../services/fornecedor.service';
 
 @Component({
   selector: 'app-fornecedor',
@@ -11,15 +12,16 @@ export class FornecedorComponent implements OnInit {
   formularioFornecedor: FormGroup;
 
   constructor(
+    private fornecedorService: FornecedorService,
     private formBuilder: FormBuilder
   ) { }
 
   ngOnInit() {
     this.formularioFornecedor = this.formBuilder.group({
-      codigo: [null, Validators.required],
-      razaosocial: [null, Validators.required],
-      nomefantasia: [null, Validators.required],
-      cnpj: [null, Validators.required],
+      id: [null],
+      razaoSocial: [null, Validators.required],
+      nome: [null, Validators.required],
+      documento: [null, Validators.required],
       email: [null],
       endereco: [null],
       cidade: [null],
@@ -28,9 +30,21 @@ export class FornecedorComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.formularioFornecedor);
-    console.log(this.formularioFornecedor.get('nome').value);
-    console.log(this.formularioFornecedor.controls.email.value);
+    console.log('form', this.formularioFornecedor);
+    console.log('nome', this.formularioFornecedor.get('nome').value);
+
+    if (this.formularioFornecedor.valid) {
+      if (this.formularioFornecedor.get('id').value) {
+        this.fornecedorService.atualizar(this.formularioFornecedor.value).subscribe(() => {
+          console.log('atualizou');
+        });
+      } else {
+        this.fornecedorService.cadastrar(this.formularioFornecedor.value).subscribe(() => {
+          console.log('criou');
+        });
+      }
+    }
+
   }
 
 
