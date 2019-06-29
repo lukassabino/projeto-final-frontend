@@ -3,4 +3,5 @@ export interface produtoDTO {
   nome: string;
   fornecedor: string;
   preco: number;
+  qtd: number;
 }

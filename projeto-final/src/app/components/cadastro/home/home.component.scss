@@ -1,8 +1,16 @@
-.example-card {
-  max-width: 230px;
+// div button {
+//   color: white;
+//   background-color: #005978;
+// }
+div button:hover {
+  background-color: #007493;
 }
 
-.example-header-image {
-  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-  background-size: cover;
+div div .produto{
+  border: 1px solid gainsboro;
+  box-shadow: 2px 2px 5px gainsboro;
+}
+
+div div .produto:hover {
+  box-shadow: 2px 2px 5px #005978;
 }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { FornecedorService } from '../services/fornecedor.service';
+import { ActivatedRoute } from '@angular/router';
+import { map, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-fornecedor',
@@ -9,11 +11,41 @@ import { FornecedorService } from '../services/fornecedor.service';
 })
 export class FornecedorComponent implements OnInit {
 
+  states: string[] = [
+    'AC',
+    'AL',
+    'AP',
+    'AM',
+    'BA',
+    'CE',
+    'DF',
+    'ES',
+    'GO',
+    'MA',
+    'MT',
+    'MS',
+    'MG',
+    'PA',
+    'PB',
+    'PR',
+    'PE',
+    'PI',
+    'RJ',
+    'RN',
+    'RS',
+    'RO',
+    'RR',
+    'SC',
+    'SP',
+    'SE',
+    'TO'];
+
   formularioFornecedor: FormGroup;
 
   constructor(
     private fornecedorService: FornecedorService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit() {
@@ -27,6 +59,11 @@ export class FornecedorComponent implements OnInit {
       cidade: [null],
       estado: [null]
     });
+    this.activatedRoute.params
+    .pipe(
+      map(params => params.id),
+      switchMap(id =>  this.fornecedorService.buscarPorId(id))
+    ).subscribe(cliente => this.updateFormulario(cliente));
   }
 
   onSubmit() {
@@ -47,12 +84,17 @@ export class FornecedorComponent implements OnInit {
 
   }
 
-
-  listaFornecedor() {
-  }
-  editaFornecedor() {
-  }
-  excluiFornecedor() {
+  updateFormulario(fornecedor) {
+    this.formularioFornecedor.patchValue({
+      id: fornecedor.id,
+      nome: fornecedor.nome,
+      razaoSocial: fornecedor.razaoSocial,
+      documento: fornecedor.documento,
+      endereco: fornecedor.endereco,
+      cidade: fornecedor.cidade,
+      estado: fornecedor.estado,
+      email: fornecedor.email,
+    });
   }
 
 }

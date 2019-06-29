@@ -1,3 +1,5 @@
+<h3>Cadastro de Farmacêuticos</h3>
+
 <form [formGroup]="formularioFarmaceutico">
   <div class="mdl-grid">
     <div class="mdl-cell mdl-cell--1-col">
@@ -45,22 +47,13 @@
   <div class="mdl-grid">
     <div class="mdl-cell mdl-cell--2-col">
       <button mat-raised-button color="primary" type="button" (click)="onSubmit()"
-        [disabled]="formularioFarmaceutico.invalid">Salvar</button>
+        [disabled]="formularioFarmaceutico.invalid" routerLink="../listafarma" >Salvar</button>
     </div>
     <div class="mdl-cell mdl-cell--3-col">
         <button mat-raised-button color="primary" type="button" routerLink="listafarma">Listar Farmaceuticos</button>
     </div>
-    <div class="mdl-cell mdl-cell--2-col">
-        <button mat-raised-button color="primary" type="button" (click)="editaFarmaceutico()"
-          [disabled]="formularioFarmaceutico.invalid">Editar Cadastro</button>
-    </div>
-    <div class="mdl-cell mdl-cell--2-col">
-        <button mat-raised-button color="primary" type="button" (click)="excluiFarmaceutico()"
-          [disabled]="formularioFarmaceutico.invalid">Excluir</button>
-    </div>
   </div>
 
-  <!-- <button type="button" (click)="onSubmit()">Salvar</button> -->
 </form>
 
 <router-outlet></router-outlet>

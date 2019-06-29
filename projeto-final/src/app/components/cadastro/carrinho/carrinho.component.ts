@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-carrinho',
@@ -14,10 +15,31 @@ export class CarrinhoComponent implements OnInit {
     {link: 'produto', descricao: 'Cadastro de Produto'}
   ];
 
+  formulario: FormGroup;
 
-  constructor() { }
+  carrinho = [
+  ];
+
+  constructor(
+    private formBuilder: FormBuilder
+  ) { }
 
   ngOnInit() {
+    this.formulario = this.formBuilder.group({
+      quantidade: [null]
+    });
+  }
+
+  finalizarCompra() {
+
+  }
+
+  quantidade() {
+    console.log('works');
+  }
+
+  remover() {
+
   }
 
 }

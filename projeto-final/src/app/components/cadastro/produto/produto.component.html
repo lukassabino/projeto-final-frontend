@@ -1,70 +1,50 @@
+<h3>Cadastro de Produtos</h3>
+
 <form [formGroup]="formularioProduto">
   <div class="mdl-grid">
-
-    <div class="mdl-cell mdl-cell--1-col">
-        <mat-form-field appearance="outline">
-          <mat-label>Codigo</mat-label>
-          <input matInput formControlName="id">
-        </mat-form-field>
+    <div class="mdl-cell mdl-cell--8-col">
+      <mat-form-field appearance="outline" class="example-full-width">
+        <input matInput placeholder="Nome" formControlName="nome">
+        <mat-error *ngIf="formularioProduto.get('nome').hasError('required')">
+          Nome é obrigatório
+        </mat-error>
+      </mat-form-field>
     </div>
-
+    <div class="mdl-cell mdl-cell--4-col">
+      <mat-form-field appearance="outline" class="example-full-width">
+        <input matInput placeholder="Código barras" formControlName="codigoBarras">
+      </mat-form-field>
+    </div>
+    <div class="mdl-cell mdl-cell--2-col">
+      <mat-form-field appearance="outline" class="example-full-width">
+        <input matInput placeholder="Preço" formControlName="preco">
+      </mat-form-field>
+    </div>
+    <div class="mdl-cell mdl-cell--2-col">
+      <mat-form-field appearance="outline" class="example-full-width">
+        <input matInput placeholder="Quantidade" formControlName="qtd">
+      </mat-form-field>
+    </div>
+    <div class="mdl-cell mdl-cell--8-col">
+      <mat-form-field  appearance="outline" class="example-full-width">
+        <input
+          placeholder="Fornecedor"
+          aria-label="Number"
+          matInput
+          [matAutocomplete]="auto"
+          formControlName="fornecedor">
+        <mat-autocomplete #auto="matAutocomplete" [displayWith]="formatter">
+          <mat-option *ngFor="let fornecedor of fornecedoresFiltrados | async" [value]="fornecedor">
+            {{fornecedor.nome}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </div>
+    <div class="mdl-cell mdl-cell--2-col">
+      <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="formularioProduto.invalid"  >Salvar</button>
+    </div>
     <div class="mdl-cell mdl-cell--3-col">
-        <mat-form-field appearance="outline">
-          <mat-label>Codigo de Barras</mat-label>
-          <input matInput formControlName="codigoBarras">
-          <mat-error *ngIf="formularioProduto.get('codigoBarras').hasError('required')">Campo obrigatorio</mat-error>
-        </mat-form-field>
-    </div>
-
-    <div class="mdl-cell mdl-cell--3-col">
-      <mat-form-field appearance="outline">
-        <mat-label>Nome</mat-label>
-        <input matInput formControlName="nome">
-        <mat-error *ngIf="formularioProduto.get('nome').hasError('required')">Campo obrigatorio</mat-error>
-      </mat-form-field>
-    </div>
-
-    <div class="mdl-cell mdl-cell--2-col">
-      <mat-form-field appearance="outline">
-        <mat-label>Preço</mat-label>
-        <input matInput formControlName="preco" type="number">
-        <mat-error *ngIf="formularioProduto.get('preco').hasError('required')">Campo obrigatorio</mat-error>
-      </mat-form-field>
-    </div>
-
-    <div class="mdl-cell mdl-cell--2-col">
-      <mat-form-field appearance="outline">
-        <mat-label>Fornecedor</mat-label>
-        <input matInput formControlName="razaoSocial" type="tel">
-        <mat-error *ngIf="formularioProduto.get('razaoSocial').hasError('required')">Campo obrigatorio</mat-error>
-      </mat-form-field>
-    </div>
-    <div class="mdl-cell mdl-cell--2-col">
-      <mat-form-field appearance="outline">
-        <mat-label>Quantidade</mat-label>
-        <input matInput formControlName="qtd" type="tel">
-        <mat-error *ngIf="formularioProduto.get('qtd').hasError('required')">Campo obrigatorio</mat-error>
-      </mat-form-field>
-    </div>
-
+      <button mat-raised-button color="primary" type="button" routerLink="listaprodu">Listar Produtos</button>
   </div>
-  <div class="mdl-grid">
-    <div class="mdl-cell mdl-cell--2-col">
-      <button mat-raised-button color="primary" type="button" (click)="onSubmit()"
-        [disabled]="formularioProduto.invalid">Salvar</button>
-    </div>
-    <div class="mdl-cell mdl-cell--3-col">
-        <button mat-raised-button color="primary" type="button" routerLink="listaprodu">Listar Produtos</button>
-    </div>
-    <div class="mdl-cell mdl-cell--2-col">
-        <button mat-raised-button color="primary" type="button" (click)="editaProduto()"
-          [disabled]="formularioProduto.invalid">Editar Cadastro</button>
-    </div>
-    <div class="mdl-cell mdl-cell--2-col">
-        <button mat-raised-button color="primary" type="button" (click)="excluiProduto()"
-          [disabled]="formularioProduto.invalid">Excluir</button>
-    </div>
   </div>
-
-  <!-- <button type="button" (click)="onSubmit()">Salvar</button> -->
 </form>

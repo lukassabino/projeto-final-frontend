@@ -1,3 +1,5 @@
+<h3>Cadastro de Fornecedores</h3>
+
 <form [formGroup]="formularioFornecedor">
   <div class="mdl-grid">
 
@@ -54,30 +56,23 @@
       </mat-form-field>
     </div>
 
-    <div class="mdl-cell mdl-cell--1-col">
-      <mat-form-field appearance="outline">
-        <mat-label>Estado</mat-label>
-        <input matInput formControlName="estado">
-      </mat-form-field>
+    <div class="mdl-cell mdl-cell--2-col">
+        <mat-form-field appearance="outline" class="example-full-width">
+            <mat-label>UF</mat-label>
+            <mat-select formControlName="estado">
+              <mat-option>Selecione uma UF</mat-option>
+              <mat-option *ngFor="let state of states" [value]="state">{{state}} </mat-option>
+            </mat-select>
+          </mat-form-field>
     </div>
   </div>
   <div class="mdl-grid">
     <div class="mdl-cell mdl-cell--2-col">
       <button mat-raised-button color="primary" type="button" (click)="onSubmit()"
-        [disabled]="formularioFornecedor.invalid">Salvar</button>
+        [disabled]="formularioFornecedor.invalid" routerLink="../listaforne" >Salvar</button>
     </div>
     <div class="mdl-cell mdl-cell--3-col">
         <button mat-raised-button color="primary" type="button" routerLink="listaforne">Listar Fornecedores</button>
     </div>
-    <div class="mdl-cell mdl-cell--2-col">
-        <button mat-raised-button color="primary" type="button" (click)="editaFornecedor()"
-          [disabled]="formularioFornecedor.invalid">Editar Cadastro</button>
-    </div>
-    <div class="mdl-cell mdl-cell--2-col">
-        <button mat-raised-button color="primary" type="button" (click)="excluiFornecedor()"
-          [disabled]="formularioFornecedor.invalid">Excluir</button>
-    </div>
   </div>
-
-  <!-- <button type="button" (click)="onSubmit()">Salvar</button> -->
 </form>

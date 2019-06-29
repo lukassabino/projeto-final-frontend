@@ -1,7 +1,7 @@
 import { fornecedorDTO } from './../dto/fornecedor-dto';
 import { Injectable } from '@angular/core';
 import { take } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -33,4 +33,10 @@ export class FornecedorService {
  deletar(id: number): Observable<any> {
    return this.http.delete(`${this.url}/${id}`).pipe(take(1));
  }
+ buscarPorNomeOuId(value: string): Observable<fornecedorDTO[]> {
+  if (value) {
+    return this.http.get<fornecedorDTO[]>(`${this.url}/busca-por-nome/${value}`).pipe(take(1));
+  }
+  return of([]);
+}
 }

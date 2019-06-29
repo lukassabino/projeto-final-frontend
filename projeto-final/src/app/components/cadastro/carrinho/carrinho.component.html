@@ -1,6 +1,37 @@
-<div>
-  <h3>MINHA CESTA</h3>
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--12-col">
+    <button mat-raised-button color="primary" (click)='finalizarCompra()'>Finalizar Compra</button>
+  </div>
 </div>
-<div>
-  <button mat-raised-button color="primary" type="button">Finalizar compra</button>
+
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--3-col" *ngFor='let produto of carrinho'>
+    <div class="produto">
+      <div class='imagem'>
+        <img src="../../../../assets/icons/remedio.jpg" alt="genérico" class="img">
+      </div>
+      <div class="descricaoProduto">
+        <div class="mdl-grid">
+          <div class="mdl-cell mdl-cell--6-col">
+            <span>Nome:</span> {{ produto.nome }}
+          </div>
+          <div class="mdl-cell mdl-cell--6-col">
+            <span>Preço:</span> {{ produto.preco }}
+          </div>
+        </div>
+
+          <div class="mdl-cell mdl-cell--12-col">
+          <form [formGroup]="formulario">
+            <mat-form-field appearance="outline">
+              <mat-label>Quantidade</mat-label>
+              <input matInput formControlName="quantidade" type='number' class="qtd" (blur)='quantidade()' value='1'>
+            </mat-form-field>
+              <button mat-raised-button  (click)='remover()'>Remover do carrinho</button>
+          </form>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
 </div>

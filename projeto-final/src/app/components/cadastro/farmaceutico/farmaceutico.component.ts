@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { FarmaceuticoService } from '../services/farmaceutico.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { switchMap, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-farmaceutico',
@@ -13,7 +15,9 @@ export class FarmaceuticoComponent implements OnInit {
 
   constructor(
     private farmaceuticoService: FarmaceuticoService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private activatedRoute: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -25,6 +29,12 @@ export class FarmaceuticoComponent implements OnInit {
       documento: [null, Validators.required],
       crf: [null, Validators.required]
     });
+
+    this.activatedRoute.params
+    .pipe(
+      map(params => params.id),
+      switchMap(id =>  this.farmaceuticoService.buscarPorId(id))
+    ).subscribe(farmaceutico => this.updateFormulario(farmaceutico));
   }
 
   onSubmit() {
@@ -44,11 +54,14 @@ export class FarmaceuticoComponent implements OnInit {
     }
 
   }
-
-  listaFarmaceutico() {
-  }
-  editaFarmaceutico() {
-  }
-  excluiFarmaceutico() {
+  updateFormulario(farmaceutico) {
+    this.formularioFarmaceutico.patchValue({
+      id: farmaceutico.id,
+      nome: farmaceutico.nome,
+      email: farmaceutico.email,
+      telefone: farmaceutico.telefone,
+      documento: farmaceutico.documento,
+      crf: farmaceutico.crf
+    });
   }
 }

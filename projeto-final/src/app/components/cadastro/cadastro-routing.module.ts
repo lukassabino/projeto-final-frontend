@@ -16,11 +16,19 @@ const routes: Routes = [
     {path: 'farmaceutico', component: FarmaceuticoComponent},
     {path: 'fornecedor', component: FornecedorComponent},
     {path: 'produto', component: ProdutoComponent},
+    {path: 'produto/listaprodu', component: ListaProdutoComponent},
+
     {path: 'cliente', component: ClienteComponent},
     {path: 'cliente/listacli', component: ListaClienteComponent},
+
+
     {path: 'farmaceutico/listafarma', component: ListaFarmaceuticoComponent},
     {path: 'fornecedor/listaforne', component: ListaFornecedorComponent},
-    {path: 'produto/listaprodu', component: ListaProdutoComponent},
+    {path: 'farmaceutico/:id', component: FarmaceuticoComponent},
+    {path: 'fornecedor/:id', component: FornecedorComponent},
+    {path: 'produto/:id', component: ProdutoComponent},
+    {path: 'cliente/:id', component: ClienteComponent},
+
     {path: 'carrinho', component: CarrinhoComponent}
 ];
 

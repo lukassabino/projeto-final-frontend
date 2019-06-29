@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProdutoService } from '../services/produto.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  produtos: any;
+
+
+
+  constructor(
+    private produtoService: ProdutoService
+  ) { }
+
+
+  buscarTodos() {
+      this.produtoService.buscarTodos().subscribe(dados => this.produtos = dados);
+      console.log(this.produtos);
+    }
 
   ngOnInit() {
+    this.buscarTodos();
+  }
+
+  adicionaCarrinho() {
+    console.log('Produto adicionado com sucesso!');
   }
 
 }

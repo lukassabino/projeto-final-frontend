@@ -1,6 +1,6 @@
 export interface fornecedorDTO {
   id?: number;
-  nomeFantasia: string;
+  nome: string;
   razaoSocial: string;
   email: string;
   documento: string;

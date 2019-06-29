@@ -20,6 +20,9 @@ import { ListaProdutoComponent } from './produto/lista-produto/lista-produto.com
 import {MatTableModule} from '@angular/material/table';
 import {MatIconModule} from '@angular/material/icon';
 import { CarrinhoComponent } from './carrinho/carrinho.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatSelectModule} from '@angular/material/select';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 @NgModule({
@@ -35,7 +38,10 @@ import { CarrinhoComponent } from './carrinho/carrinho.component';
     MatMenuModule,
     MatCardModule,
     MatTableModule,
-    MatIconModule
+    MatIconModule,
+    MatAutocompleteModule,
+    MatSelectModule,
+    MatDialogModule
   ]
 })
 export class CadastroModule { }
